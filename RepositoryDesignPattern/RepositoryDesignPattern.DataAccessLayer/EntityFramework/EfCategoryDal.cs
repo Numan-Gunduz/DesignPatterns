@@ -14,7 +14,7 @@ namespace RepositoryDesignPattern.DataAccessLayer.EntityFramework
     {
         public EfCategoryDal(ApplicationDbContext applicationDbContext):base(applicationDbContext)
         {
-            
+                
         }
     }
 }
