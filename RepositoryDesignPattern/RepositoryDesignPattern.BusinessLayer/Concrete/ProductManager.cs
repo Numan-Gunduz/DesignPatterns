@@ -1,11 +1,7 @@
 ﻿using RepositoryDesignPattern.BusinessLayer.Abstract;
 using RepositoryDesignPattern.DataAccessLayer.Abstract;
 using RepositoryDesignPattern.EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RepositoryDesignPattern.BusinessLayer.Concrete
 {
@@ -36,6 +32,11 @@ namespace RepositoryDesignPattern.BusinessLayer.Concrete
         public void TInsert(Product t)
         {
            _productDal.Insert(t);
+        }
+
+        public List<Product> TProductListWithCategory()
+        {
+            return _productDal.ProductListWithCategory();
         }
 
         public void TUpdate(Product t)

@@ -1,4 +1,5 @@
-﻿using RepositoryDesignPattern.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using RepositoryDesignPattern.DataAccessLayer.Abstract;
 using RepositoryDesignPattern.DataAccessLayer.Concrete;
 using RepositoryDesignPattern.DataAccessLayer.Repositories;
 using RepositoryDesignPattern.EntityLayer.Concrete;
@@ -12,9 +13,17 @@ namespace RepositoryDesignPattern.DataAccessLayer.EntityFramework
 {
     public class EfProductDal:GenericRepository<Product>,IProductDal
     {
+        private readonly ApplicationDbContext _applicationDbContext;
+
         public EfProductDal(ApplicationDbContext applicationDbContext) : base(applicationDbContext) 
         {
-            
+            _applicationDbContext = applicationDbContext;
         }
+
+        public List<Product> ProductListWithCategory()
+        {
+            return _applicationDbContext.Products.Include(p => p.Category).ToList();
+        }
+
     }
 }
