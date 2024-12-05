@@ -18,7 +18,10 @@ namespace DesignPattern.CQRS.CQRSPattern.Handlers
                 ProductID = x.ProductID,
                 ProductName=x.Name,
                 ProductPrice=x.Price,
-                ProductStock=x.Stock,   
+                ProductStock=x.Stock,  
+                ProductDescription=x.Description,
+                ProductStatus=x.Status,
+                
             }).ToList();
             return values;
         }
