@@ -14,10 +14,10 @@ namespace RepositoryDesignPattern.DataAccessLayer.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-        // Seed Data Metodu
+
         public void SeedData()
         {
-            if (!Categories.Any()) // Kategoriler tablosunu kontrol et
+            if (!Categories.Any()) 
             {
                 Categories.AddRange(
                     new Category { CategoryName = "Elektronik" },
@@ -27,7 +27,7 @@ namespace RepositoryDesignPattern.DataAccessLayer.Concrete
                 SaveChanges();
             }
 
-            if (!Products.Any()) // Ürünler tablosunu kontrol et
+            if (!Products.Any()) 
             {
                 Products.AddRange(
                     new Product { ProductName = "Laptop", ProductStock = 50, ProductPrice = 12000.50M, CategoryID = 1 },
